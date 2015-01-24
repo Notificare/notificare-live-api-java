@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.UnknownHostException;
+import java.util.Map;
 
 import javax.ws.rs.core.UriBuilder;
 
@@ -37,7 +38,7 @@ public class LiveApiHttpServer {
     }
  
     private static HttpServer createHttpServer(int port, String privateKey, String publicKey) throws IOException {
-        ResourceConfig notificareLiveApiResourceConfig = new PackagesResourceConfig("re.notifica.liveapi.test");
+        ResourceConfig notificareLiveApiResourceConfig = new PackagesResourceConfig("re.notifica.liveapi.example");
         LiveApi liveApi = new LiveApi(privateKey, publicKey);
         System.out.println("using Notificare LiveApi version " + LiveApi.VERSION);
         notificareLiveApiResourceConfig.getProperties().put("re.notifica.liveapi.HttpGateway", liveApi.httpGateway());
